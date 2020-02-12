@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Project 1</title>
-    <script src="productList.js"></script>
+
     <link rel="stylesheet" href="style.css" type="text/css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,8 +32,8 @@
         <ul>
             <li>Order By:</li>
                 <select name="orderBy" id="orderBy">
-                    <option value="Name">Name</option>
-                    <option value="Price">Price</option>
+                    <option value="name">Name</option>
+                    <option value="price">Price</option>
                 </select>
             <li>Price Range: </li>
             <select name="priceRange" id="priceRange">
@@ -41,6 +41,11 @@
                 <option value="25-50">$25 - $50</option>
                 <option value="50-100">$50 - $100</option>
                 <option value="Above 100">Above $100</option>
+            </select>
+            <li>Brand: </li>
+            <select name="brand" id="brand">
+                <option value="Apple">Apple</option>
+                <option value="Samsung">Samsung</option>
             </select>
         </ul>
 
@@ -67,6 +72,6 @@
         </nav>
     </footer>
 </div>
-
+<script src="productList.js"></script>
 </body>
 </html>
