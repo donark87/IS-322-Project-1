@@ -31,7 +31,8 @@ var results = [
 function orderBy(sortValue) {
 
     var sortedResults = (sortValue === 'name') ?
-        mockDatabase.sort(function (a, b) {
+
+        results.sort(function (a, b) {
 
             var nameA = a.title.toUpperCase();
             var nameB = b.title.toUpperCase();
@@ -43,13 +44,14 @@ function orderBy(sortValue) {
                 return 1;
             }
         }) :
-        mockDatabase.sort(function (a, b) {
+        results.sort(function (a, b) {
             return a[sortValue] - b[sortValue];
         });
     renderList(sortedResults);
 }
     document.querySelector('#orderBy').addEventListener('change', function(event){
        orderBy(event.target.value);
+
 });
 
 })();
