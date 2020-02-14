@@ -68,6 +68,8 @@ function brand(sortValue){
        }
 
    });
+    var sortBy = document.querySelector('#orderBy');
+    orderBy(sortBy);
     renderList(sortedResults);
 }
 
@@ -98,6 +100,8 @@ function priceRange(sortValue){
         }
 
     });
+    var sortBy = document.querySelector('#orderBy');
+    orderBy(sortBy);
     renderList(sortedResults);
 }
 
