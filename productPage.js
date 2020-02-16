@@ -1,7 +1,5 @@
 (function () {
 
-
-
     var results = [
         { _id: 0,image: 'productImage/image1- Black.jpg', title: '<a href="productPage.html">Iphone 11 Black</a>', price: '789.99', Brand: 'Apple', description:"<H1>Iphone 11 Black</H1><p>reprehenderit in voluptate velit esse cillum, <strong>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</strong>. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt  est laborum.</p>"},
         { _id: 1,image: 'productImage/image1- Gold.jpg', title: '<a href="productPage.html">Iphone 11 Gold</a>', price: '775.99', Brand: 'Apple', description:"<H1>Iphone 11 Gold</H1><p>Excepteur sint occaecat cupidatat non <strong>sunt in culpa qui officia deserunt mollit anim id est laborum.</strong>. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"},
@@ -18,106 +16,47 @@
         { _id: 12,image: 'productImage/image2- White.jpg', title: '<a href="productPage.html">Samsung S9 Blue</a>', price: '249.99', Brand: 'Samsung', description:"<H1>Samsung S9 Blue</H1><p>Gravida rutrum quisque non tellus orci ac. Bibendum enim facilisis gravida neque convallis a cras semper. <strong>Commodo elit at imperdiet dui accumsan. </strong>Netus et malesuada fames ac turpis egestas. Amet dictum sit amet justo donec enim diam vulputate ut. Ultrices eros in cursus turpis massa tincidunt dui ut ornare. Id aliquet lectus proin nibh nisl condimentum. Purus viverra accumsan in nisl nisi scelerisqueetra magna ac</p>" },
         { _id: 13,image: 'productImage/image2- White.jpg', title: '<a href="productPage.html">Samsung S9 Pink</a>', price: '199.99', Brand: 'Samsung', description:"<H1>Samsung S9 Pink</H1><p>Neque sodales ut etiam sit amet nisl purus in. Nec nam aliquam sem et tortor consequat. <strong>Semper eget duis at tellus at urna condimentum mattis pellentesque. </strong>Purus non enim praesent elementum facilisis leo vel fringilla est. Pretium viverra suspendisse potenti nullam ac tortor. Odio eu feugiat pretium nibh ipsum consequat nisl vel pretium. Eu mi bibendum neque egestas congue quisque. Lobortis feugiat que penatibus.</p>" },
     ];
-    renderList(results);
 
-function renderList(results) {
+    randomProduct(results);
 
-
-    var tableBody = document.querySelector('#results-table tbody');
-
-    tableBody.innerHTML = '';
-
-    var tableRows = results.map(function (result, index) {
-        return '<td> <img src="' + result.image + '"></td><td> <p>' +
-            result.title + '</p></td><td><p>$' + result.price + '</p></td></tr>';
-    });
-
-    tableRows.forEach(function (row) {
-        tableBody.innerHTML += row;
-    });
-}
+    function renderList(results) {
 
 
-function orderBy(sortValue) {
+        var productTitle = results.map(function (result, ) {
+            return result.title;})
+        var productBrand = results.map(function (result, ) {
+            return result.Brand;})
+        var productImage = results.map(function (result, ) {
+                return '<img src="' + result.image + '" >'})
+        var productPrice = results.map(function (result, ) {
+            return '$' + result.price;})
+        var productDescription = results.map(function (result, ) {
+            return result.description;})
 
-    var sortedResults = (sortValue === 'name') ?
+        document.getElementById("productTitle").innerHTML = productTitle;
+        document.getElementById("brandLabel").innerHTML = productBrand;
+        document.getElementById("productImage").innerHTML = productImage;
+        document.getElementById("productPrice").innerHTML = productPrice;
+        document.getElementById("productDiscription").innerHTML = productDescription;
+    }
+    function randomProduct(sortValue){
+        var tempRandomNumber = Math.floor(Math.random() * 14);
+        var sortedResults = results.filter(function (a) {
 
-        results.sort(function (a, b) {
-
-            var nameA = a.title.toUpperCase();
-            var nameB = b.title.toUpperCase();
-
-            if (nameA < nameB) {
-                return -1;
+            if (a._id === tempRandomNumber){
+                return true;
             }
-            if (nameA > nameB) {
-                return 1;
-            }
-        }) :
-        results.sort(function (a, b) {
-            return a[sortValue] - b[sortValue];
+
         });
-    renderList(sortedResults);
-}
-
-function brand(sortValue){
-
-   var sortedResults = results.filter(function (a) {
-       if (a.Brand === sortValue){
-           return true;
-       }
-
-   });
-    var sortBy = document.querySelector('#orderBy');
-    orderBy(sortBy);
-    renderList(sortedResults);
-}
-
-function priceRange(sortValue){
-        var temp = parseInt(sortValue);
-    var sortedResults = results.filter(function (a) {
-        switch (temp){
-            case 1:
-                if(a.price <= 200){
-                    return true;
-                }
-                break;
-            case 2:
-                if(a.price > 200 && a.price <= 400){
-                    return true;
-                }
-                break;
-            case 3:
-                if(a.price > 400 && a.price <= 600){
-                    return true;
-                }
-                break;
-            case 4:
-                if(a.price > 600){
-                    return true;
-                }
-                break;
-        }
-
-    });
-    var sortBy = document.querySelector('#orderBy');
-    orderBy(sortBy);
-    renderList(sortedResults);
-}
-
-
-    document.querySelector('#orderBy').addEventListener('change', function(event){
-        orderBy(event.target.value);
-
-    });
-    document.querySelector('#brand').addEventListener('change', function(event){
-        brand(event.target.value);
-    });
-    document.querySelector('#priceRange').addEventListener('change', function(event){
-        priceRange(event.target.value);
-
-    });
+        renderList(sortedResults);
+    }
 
 
 
-})();
+
+
+
+
+
+
+} ) ();
