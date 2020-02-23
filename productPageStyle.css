@@ -267,28 +267,28 @@ footer{
         margin: 5px;
     }
     .navbar ul li{
-        left: 26%;
+        left: 96px;
     }
     .productTitle a {
         font-size: 30px;
         margin-left: 34px;
     }
     .productImage {
-        left: 3px;
-        width: 372px;
+        left: 10px;
+        width: 306px;
 
     }
     .productImage img {
-        width: 372px;
+        width: 305px;
         height: 450px;
     }
     .productPrice {
 
-        left: 126px;
+        left: 100px;
     }
     .addToCart {
 
-        left: 126px;
+        left: 100px;
 
     }
     .productDetails {

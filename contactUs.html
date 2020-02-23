@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Project 1</title>
-
-    <link rel="stylesheet" href="productPageStyle.css" type="text/css">
+    <script src="landing.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>  <!--For checkbox icon-->
@@ -28,24 +28,21 @@
         </nav>
     </header>
 </div>
-<div class="productTitle"><label for="productTitle"><p id="productTitle">Title</p></label></div>
-<div class="productDetails"><p>Product Details:</p>
-    <ul>
-        <li>Brand: <a id="brandLabel"></a></li>
-    </ul>
-</div>
-<div class="productImage" id="productImage">
 
+
+<div class="subscribe" id="submitForm">
+    <h2>Contact us: </h2>
+    <form>
+        <input type="text" placeholder="First name" id="firstName">
+        <input type="text" placeholder="Last name" id="lastName"><br>
+        <input type="text" placeholder="Email" id="email"><br>
+        <h2>Comments: </h2>
+        <textarea rows="4" cols="50" placeholder="..."></textarea>
+        <input type="submit" value="Send" class="inputButton" >
+        <input type="button" value="Cancel" class="inputButton"><br>
+    </form>
 </div>
-<div class="productPrice">
-    <label for="productPrice"><p id="productPrice"></p></label>
-</div>
-<div class="addToCart">
-    <button type="button">Add to Cart</button>
-</div>
-<div class="productDiscription">
-    <p id="productDiscription">Bla,bla</p>
-</div>
+
 <div>
     <footer>
         <nav class="footbar">
@@ -58,6 +55,6 @@
         </nav>
     </footer>
 </div>
-<script src="productPage.js"></script>
+
 </body>
 </html>
